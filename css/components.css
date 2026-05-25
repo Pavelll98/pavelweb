@@ -137,7 +137,7 @@
   pointer-events: all;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .nav__links, .btn--nav { display: none; }
   .nav__burger { display: flex; }
   .site-header {
