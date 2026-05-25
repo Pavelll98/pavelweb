@@ -34,8 +34,10 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link rel="preload" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" /></noscript>
 
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/base.css" />
@@ -45,11 +47,10 @@
 
   <a class="skip-link" href="#main-content">Přeskočit na obsah</a>
 
-  <!-- ── NAV ──────────────────────────────────────────────────── -->
   <header class="site-header">
     <nav class="nav" aria-label="Hlavní navigace">
-      <a href="/index.html" class="nav__logo" aria-label="Pavel — domovská stránka">
-        Pavel<span class="nav__logo-sub">· webař na volné noze</span>
+      <a href="/index.html" class="nav__logo" aria-label="pavelbuilds.web — domovská stránka">
+        <span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="nav__logo-sub">.web</span></span>
       </a>
       <ul class="nav__links" role="list">
         <li><a href="/index.html"     class="nav__link">Domů</a></li>
@@ -133,14 +134,14 @@
               <li><span class="pc-dot" aria-hidden="true"></span><span>Google Analytics</span></li>
               <li><span class="pc-dot" aria-hidden="true"></span><span>Napojení na sociální sítě</span></li>
               <li><span class="pc-dot" aria-hidden="true"></span><span>Copywriting &amp; texty na míru</span></li>
-              <li><span class="pc-dot" aria-hidden="true"></span><span>Výběr a úprava fotografií</span></li>
+              <li><span class="pc-dot" aria-hidden="true"></span><span>Výběr a správa fotografií</span></li>
             </ul>
           </div>
 
           <!-- Premium -->
           <div class="pc-card">
             <h2 class="pc-tier">Premium</h2>
-            <p class="pc-desc">Chcete web a neřešit vůbec nic? Texty, fotky, platby i integrace — vše doručím na klíč za vás.</p>
+            <p class="pc-desc">Chcete web a nechcete řešit vůbec nic? Texty, fotky, platby i integrace — vše doručím na klíč za vás.</p>
             <div class="pc-price-row">
               <span class="pc-price-od">od</span>
               <span class="pc-price-num">19&nbsp;990</span>
@@ -169,12 +170,10 @@
 
   </main>
 
-  <!-- ── FOOTER ─────────────────────────────────────────────── -->
   <footer class="site-footer">
     <div class="footer__inner">
       <div>
-        <div class="footer__logo" aria-hidden="true">Pavel<span class="footer__logo-sub"> · webař na volné noze</span></div>
-        <p class="footer__tagline">Weby, které mluví za vaši firmu — od prvního hovoru po spuštění.</p>
+        <div class="footer__logo" aria-hidden="true"><span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="footer__logo-sub">.web</span></span></div>
       </div>
       <nav aria-label="Navigace v patičce">
         <p class="footer__heading">Navigace</p>
@@ -188,7 +187,7 @@
       </nav>
       <div>
         <p class="footer__heading">Kontakt</p>
-        <a href="mailto:xblaster.draxia@gmail.com" class="footer__email">xblaster.draxia@gmail.com</a>
+        <a href="mailto:pavelbuildsweb@gmail.com" class="footer__email">pavelbuildsweb@gmail.com</a>
       </div>
     </div>
     <div class="footer__bottom">

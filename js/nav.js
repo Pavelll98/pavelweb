@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
       header.classList.toggle("scrolled", window.scrollY > 20);
     }
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    requestAnimationFrame(onScroll);
   }
 
   /* ── 2. Active link ───────────────────────────────────────── */
@@ -20,29 +20,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* ── 3. Hamburger toggle ──────────────────────────────────── */
+  /* ── 3. Side-drawer toggle ───────────────────────────────── */
   var burger     = document.querySelector(".nav__burger");
   var mobileMenu = document.getElementById("mobile-menu");
 
   if (burger && mobileMenu) {
-    burger.addEventListener("click", function () {
-      var isOpen = !mobileMenu.hidden;
-      mobileMenu.hidden = isOpen;
-      burger.setAttribute("aria-expanded", String(!isOpen));
-      burger.classList.toggle("nav__burger--open", !isOpen);
+    // Switch from HTML hidden attribute to CSS-driven drawer
+    mobileMenu.removeAttribute("hidden");
+
+    var overlay = document.createElement("div");
+    overlay.className = "nav__overlay";
+    document.body.appendChild(overlay);
+
+    function openMenu() {
+      mobileMenu.classList.add("is-open");
+      overlay.classList.add("is-visible");
+      burger.setAttribute("aria-expanded", "true");
+      burger.classList.add("nav__burger--open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove("is-open");
+      overlay.classList.remove("is-visible");
+      burger.setAttribute("aria-expanded", "false");
+      burger.classList.remove("nav__burger--open");
+      document.body.style.overflow = "";
+    }
+
+    burger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      mobileMenu.classList.contains("is-open") ? closeMenu() : openMenu();
     });
-    document.addEventListener("click", function (e) {
-      if (!e.target.closest(".site-header") && !mobileMenu.hidden) {
-        mobileMenu.hidden = true;
-        burger.setAttribute("aria-expanded", "false");
-        burger.classList.remove("nav__burger--open");
-      }
-    });
+    overlay.addEventListener("click", closeMenu);
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && !mobileMenu.hidden) {
-        mobileMenu.hidden = true;
-        burger.setAttribute("aria-expanded", "false");
-        burger.classList.remove("nav__burger--open");
+      if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+        closeMenu();
         burger.focus();
       }
     });

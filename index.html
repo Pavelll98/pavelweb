@@ -47,8 +47,10 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link rel="preload" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" /></noscript>
 
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/base.css" />
@@ -61,8 +63,8 @@
   <!-- ── NAV ──────────────────────────────────────────────────── -->
   <header class="site-header">
     <nav class="nav" aria-label="Hlavní navigace">
-      <a href="/index.html" class="nav__logo" aria-label="Pavel — domovská stránka">
-        Pavel<span class="nav__logo-sub">· webař na volné noze</span>
+      <a href="/index.html" class="nav__logo" aria-label="pavelbuilds.web — domovská stránka">
+        <span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="nav__logo-sub">.web</span></span>
       </a>
       <ul class="nav__links" role="list">
         <li><a href="/index.html"     class="nav__link nav__link--active">Domů</a></li>
@@ -181,7 +183,7 @@
           <div class="consult-foot">
             <div class="consult-author">
               <div class="consult-avatar"
-                   style="background-image:url('/images/pavel-webař.png');"
+                   style="background-image:url('/images/pavel-webař.webp');"
                    role="img"
                    aria-label="Pavel">
               </div>
@@ -209,30 +211,25 @@
         <div class="showcase-right">
           <div class="showcase-header">
             <p class="showcase-eyebrow">Portfolio</p>
-            <h2 class="showcase-headline" id="showcase-heading">Weby, které mluví za sebe</h2>
+            <h2 class="showcase-headline" id="showcase-heading">Weby, které zaujmou během pár sekund</h2>
             <p class="showcase-body">Prohlédněte si mé realizace — od restaurací a wellness studií po kliniky a salony. Každý projekt je navržen na míru tak, aby zaujal a přinášel výsledky.</p>
           </div>
         </div>
 
         <div class="showcase-visual">
           <div class="showcase-browser">
-            <div class="showcase-bar">
-              <div class="showcase-dots" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="showcase-url" aria-hidden="true">granat-restaurace.cz</div>
-            </div>
             <div class="showcase-screen">
               <img
-                src="/images/granat_restaurant_portofolio.png"
+                src="/images/granat_restaurant_portofolio.webp"
                 alt="Ukázka webu — Granát restaurace"
                 class="showcase-img"
+                width="1440" height="900"
               />
             </div>
           </div>
           <div class="showcase-phone" aria-hidden="true">
             <div class="showcase-phone-screen">
-              <img src="/images/granat_restaurant_portofolio_phone.png" alt="Mobilní zobrazení webu Granát Restaurace" />
+              <img src="/images/granat_restaurant_portofolio_phone.webp" alt="Mobilní zobrazení webu Granát Restaurace" width="390" height="844" />
             </div>
           </div>
         </div>
@@ -335,7 +332,7 @@
             </button>
             <div class="proc-panel" id="faq-panel-0" role="region" aria-labelledby="faq-title-0">
               <div class="proc-body">
-                <p>Cena závisí na rozsahu projektu. Jednoduchý prezentační web začíná od 15 000 Kč, komplexnější projekty od 40 000 Kč. Po bezplatné konzultaci dostanete přesnou nabídku šitou na míru vašim potřebám a rozpočtu.</p>
+                <p>Nabízím tři balíčky: <strong>Starter od 4&nbsp;990&nbsp;Kč</strong>, <strong>Pro od 9&nbsp;490&nbsp;Kč</strong> a <strong>Premium od 19&nbsp;990&nbsp;Kč</strong>. Přesnou cenu vždy odvodím od vašeho projektu po bezplatné konzultaci.</p>
               </div>
             </div>
           </div>
@@ -350,7 +347,7 @@
             </button>
             <div class="proc-panel" id="faq-panel-1" role="region" aria-labelledby="faq-title-1">
               <div class="proc-body">
-                <p>Typicky 3–6 týdnů. Závisí na rozsahu webu a rychlosti dodání podkladů z vaší strany. Termín vždy dohodnu dopředu a dodržím ho.</p>
+                <p>Nejjednodušší weby do 1–2 týdnů od odsouhlasení designu s klientem. Délka závisí na komplexnosti projektu.</p>
               </div>
             </div>
           </div>
@@ -389,13 +386,13 @@
             <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-4">
               <span class="proc-content">
                 <span class="proc-num" aria-hidden="true">05</span>
-                <span class="proc-title" id="faq-title-4">Děláte i e-shopy?</span>
+                <span class="proc-title" id="faq-title-4">Co když nebudu spokojený s výsledkem?</span>
               </span>
               <span class="proc-icon" aria-hidden="true">+</span>
             </button>
             <div class="proc-panel" id="faq-panel-4" role="region" aria-labelledby="faq-title-4">
               <div class="proc-body">
-                <p>Ano. E-shopy tvořím na míru i na platformách jako Shoptet nebo WooCommerce. Volbu řešení přizpůsobím vašim potřebám a rozpočtu.</p>
+                <p>Design ladíme společně tak dlouho, dokud nebudete maximálně spokojeni — to je součástí celého procesu. Web odevzdám až tehdy, kdy budete s výsledkem skutečně spokojeni.</p>
               </div>
             </div>
           </div>
@@ -404,13 +401,58 @@
             <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-5">
               <span class="proc-content">
                 <span class="proc-num" aria-hidden="true">06</span>
-                <span class="proc-title" id="faq-title-5">Co když nebudu spokojený s výsledkem?</span>
+                <span class="proc-title" id="faq-title-5">Zvládnu si web upravovat sám?</span>
               </span>
               <span class="proc-icon" aria-hidden="true">+</span>
             </button>
             <div class="proc-panel" id="faq-panel-5" role="region" aria-labelledby="faq-title-5">
               <div class="proc-body">
-                <p>Design ladíme společně tak dlouho, dokud nebudete maximálně spokojeni — to je součástí celého procesu. Web odevzdám až tehdy, kdy budete s výsledkem skutečně spokojeni.</p>
+                <p>Ano. V balíčku Pro a Premium dodávám CMS, kde si sami upravíte texty i fotky — bez programátora.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-6">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">07</span>
+                <span class="proc-title" id="faq-title-6">Je web optimalizovaný pro mobily?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-6" role="region" aria-labelledby="faq-title-6">
+              <div class="proc-body">
+                <p>Ano, všechny weby jsou plně responzivní a fungují na mobilu, tabletu i desktopu.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-7">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">08</span>
+                <span class="proc-title" id="faq-title-7">Řešíte také SEO?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-7" role="region" aria-labelledby="faq-title-7">
+              <div class="proc-body">
+                <p>Ano, základní SEO optimalizace je součástí každého webu — správná struktura, rychlost načítání a technické nastavení.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-8">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">09</span>
+                <span class="proc-title" id="faq-title-8">Pomůžete i s designem?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-8" role="region" aria-labelledby="faq-title-8">
+              <div class="proc-body">
+                <p>Ano. Můžu připravit kompletní návrh designu nebo navázat na váš existující brand.</p>
               </div>
             </div>
           </div>
@@ -425,8 +467,7 @@
   <footer class="site-footer">
     <div class="footer__inner">
       <div>
-        <div class="footer__logo" aria-hidden="true">Pavel<span class="footer__logo-sub"> · webař na volné noze</span></div>
-        <p class="footer__tagline">Weby, které mluví za vaši firmu — od prvního hovoru po spuštění.</p>
+        <div class="footer__logo" aria-hidden="true"><span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="footer__logo-sub">.web</span></span></div>
       </div>
       <nav aria-label="Navigace v patičce">
         <p class="footer__heading">Navigace</p>
@@ -440,7 +481,7 @@
       </nav>
       <div>
         <p class="footer__heading">Kontakt</p>
-        <a href="mailto:xblaster.draxia@gmail.com" class="footer__email">xblaster.draxia@gmail.com</a>
+        <a href="mailto:pavelbuildsweb@gmail.com" class="footer__email">pavelbuildsweb@gmail.com</a>
       </div>
     </div>
     <div class="footer__bottom">
@@ -479,3 +520,4 @@
 
 </body>
 </html>
+

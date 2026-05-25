@@ -34,8 +34,10 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link rel="preload" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
 
   <link rel="stylesheet" href="/css/tokens.css?v=4" />
   <link rel="stylesheet" href="/css/base.css?v=4" />
@@ -47,8 +49,8 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Hlavní navigace">
-      <a href="/index.html" class="nav__logo" aria-label="Pavel — domovská stránka">
-        Pavel<span class="nav__logo-sub">· webař na volné noze</span>
+      <a href="/index.html" class="nav__logo" aria-label="pavelbuilds.web — domovská stránka">
+        <span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="nav__logo-sub">.web</span></span>
       </a>
       <ul class="nav__links" role="list">
         <li><a href="/index.html"     class="nav__link">Domů</a></li>
@@ -107,6 +109,12 @@
             </div>
 
             <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone"
+                     placeholder="+420 xxx xxx xxx" autocomplete="tel" />
+            </div>
+
+            <div class="form-group">
               <label for="subject">Předmět</label>
               <input type="text" id="subject" name="subject"
                      placeholder="Nový web, redesign, SEO audit…" />
@@ -138,8 +146,7 @@
   <footer class="site-footer">
     <div class="footer__inner">
       <div>
-        <div class="footer__logo" aria-hidden="true">Pavel<span class="footer__logo-sub"> · webař na volné noze</span></div>
-        <p class="footer__tagline">Weby, které mluví za vaši firmu — od prvního hovoru po spuštění.</p>
+        <div class="footer__logo" aria-hidden="true"><span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="footer__logo-sub">.web</span></span></div>
       </div>
       <nav aria-label="Navigace v patičce">
         <p class="footer__heading">Navigace</p>
@@ -153,7 +160,7 @@
       </nav>
       <div>
         <p class="footer__heading">Kontakt</p>
-        <a href="mailto:xblaster.draxia@gmail.com" class="footer__email">xblaster.draxia@gmail.com</a>
+        <a href="mailto:pavelbuildsweb@gmail.com" class="footer__email">pavelbuildsweb@gmail.com</a>
       </div>
     </div>
     <div class="footer__bottom">
@@ -167,3 +174,4 @@
   <script src="/js/anim.js" defer></script>
 </body>
 </html>
+

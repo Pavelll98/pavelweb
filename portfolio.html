@@ -33,8 +33,10 @@
   }
   </script>
 
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link rel="preload" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
 
   <link rel="stylesheet" href="/css/tokens.css" />
   <link rel="stylesheet" href="/css/base.css" />
@@ -134,7 +136,7 @@
     }
 
     /* Viewport */
-    .por-viewport { position: absolute; inset: 32px 0 0 0; overflow: hidden; }
+    .por-viewport { position: absolute; inset: 0; overflow: hidden; }
 
     /* Cover */
     .por-cover { display: none; }
@@ -183,7 +185,7 @@
     }
     .por-card:hover .por-scroll,
     .por-scroll.is-scrolling {
-      transform: translate3d(0,calc(-100% + 280px),0);
+      transform: translate3d(0,calc(-100% + var(--card-h)),0);
       transition: transform var(--scroll-duration) linear;
     }
 
@@ -265,8 +267,8 @@
   <!-- ── NAV ──────────────────────────────────────────────────── -->
   <header class="site-header">
     <nav class="nav" aria-label="Hlavní navigace">
-      <a href="/index.html" class="nav__logo" aria-label="Pavel — domovská stránka">
-        Pavel<span class="nav__logo-sub">· webař na volné noze</span>
+      <a href="/index.html" class="nav__logo" aria-label="pavelbuilds.web — domovská stránka">
+        <span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="nav__logo-sub">.web</span></span>
       </a>
       <ul class="nav__links" role="list">
         <li><a href="/index.html"     class="nav__link">Domů</a></li>
@@ -304,16 +306,13 @@
         <!-- Card 1 -->
         <article class="por-card" style="--scroll-duration:11s">
           <div class="por-frame">
-            <div class="por-chrome">
-<span class="url">granat-restaurant.cz</span>
-            </div>
             <div class="por-viewport">
               <div class="por-cover por-cover--paper">
                 <span class="por-cover__label">Granát<br/>Restaurace</span>
                 <span class="por-cover__tag">01 · Restaurace · Web</span>
               </div>
               <div class="por-scroll">
-                <img src="/images/granat_restaurant_portofolio.png" alt="Ukázka webu Granát Restaurace" loading="lazy" style="width:100%;display:block;">
+                <img src="/images/granat_restaurant_portofolio.webp" alt="Ukázka webu Granát Restaurace" loading="lazy" style="width:100%;display:block;">
               </div>
             </div>
           </div>
@@ -331,16 +330,13 @@
         <!-- Card 2 -->
         <article class="por-card">
           <div class="por-frame">
-            <div class="por-chrome">
-<span class="url">klinika-usmev.cz</span>
-            </div>
             <div class="por-viewport">
               <div class="por-cover por-cover--dark">
                 <span class="por-cover__label">Klinika<br/>Úsměv</span>
                 <span class="por-cover__tag">02 · Klinika · Web</span>
               </div>
               <div class="por-scroll">
-                <img src="/images/klinika_usmev_portfolio.png" alt="Ukázka webu Klinika Úsměv" loading="lazy" style="width:100%;display:block;">
+                <img src="/images/klinika_usmev_portfolio.webp" alt="Ukázka webu Klinika Úsměv" loading="lazy" style="width:100%;display:block;">
               </div>
             </div>
           </div>
@@ -358,16 +354,13 @@
         <!-- Card 3 -->
         <article class="por-card" style="--scroll-duration:6.5s">
           <div class="por-frame">
-            <div class="por-chrome">
-<span class="url">trattoria-bellanotte.cz</span>
-            </div>
             <div class="por-viewport">
               <div class="por-cover por-cover--accent">
                 <span class="por-cover__label">Trattoria<br/>Bella Notte</span>
                 <span class="por-cover__tag">03 · Restaurace · Web</span>
               </div>
               <div class="por-scroll">
-                <img src="/images/trattoria_bella_notte_porfolio.png" alt="Ukázka webu Trattoria Bella Notte" loading="lazy" style="width:100%;display:block;">
+                <img src="/images/trattoria_bella_notte_porfolio.webp" alt="Ukázka webu Trattoria Bella Notte" loading="lazy" style="width:100%;display:block;">
               </div>
             </div>
           </div>
@@ -385,16 +378,13 @@
         <!-- Card 4 -->
         <article class="por-card" style="--scroll-duration:15s">
           <div class="por-frame">
-            <div class="por-chrome">
-<span class="url">serenity-spa.cz</span>
-            </div>
             <div class="por-viewport">
               <div class="por-cover por-cover--paper">
                 <span class="por-cover__label">Serenity<br/>Spa & Studio</span>
                 <span class="por-cover__tag">04 · Spa · Web</span>
               </div>
               <div class="por-scroll">
-                <img src="/images/serenity_spa_studio_portfolio.png" alt="Ukázka webu Serenity Spa & Studio" loading="lazy" style="width:100%;display:block;">
+                <img src="/images/serenity_spa_studio_portfolio.webp" alt="Ukázka webu Serenity Spa & Studio" loading="lazy" style="width:100%;display:block;">
               </div>
             </div>
           </div>
@@ -412,16 +402,13 @@
         <!-- Card 5 -->
         <article class="por-card" style="--scroll-duration:8s">
           <div class="por-frame">
-            <div class="por-chrome">
-<span class="url">lux-hairstudio.cz</span>
-            </div>
             <div class="por-viewport">
               <div class="por-cover por-cover--dark">
                 <span class="por-cover__label">Lux<br/>Hair Studio</span>
                 <span class="por-cover__tag">05 · Kadeřnictví · Web</span>
               </div>
               <div class="por-scroll">
-                <img src="/images/lux_hairstudio_portfolio.png" alt="Ukázka webu Lux Hair Studio" loading="lazy" style="width:100%;display:block;">
+                <img src="/images/lux_hairstudio_portfolio.webp" alt="Ukázka webu Lux Hair Studio" loading="lazy" style="width:100%;display:block;">
               </div>
             </div>
           </div>
@@ -436,51 +423,6 @@
           </div>
         </article>
 
-        <!-- Card 6 -->
-        <article class="por-card">
-          <div class="por-frame">
-            <div class="por-chrome">
-<span class="url">modastyle.cz</span>
-            </div>
-            <div class="por-viewport">
-              <div class="por-cover por-cover--accent">
-                <span class="por-cover__label">Moda<br/>Style</span>
-                <span class="por-cover__tag">06 · E-commerce · Fashion</span>
-              </div>
-              <div class="por-scroll">
-                <div class="ps-section"><div class="ps-hero"></div></div>
-                <div class="ps-section">
-                  <div class="ps-bar short"></div>
-                  <div class="ps-row"><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div></div>
-                  <div class="ps-row"><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div></div>
-                </div>
-                <div class="ps-section ps-section--dark">
-                  <div class="ps-bar wide tall"></div>
-                  <div class="ps-bar med"></div><div class="ps-bar short"></div>
-                </div>
-                <div class="ps-section">
-                  <div class="ps-bar med"></div><div class="ps-bar wide"></div><div class="ps-bar short"></div>
-                </div>
-                <div class="ps-section">
-                  <div class="ps-row"><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div></div>
-                </div>
-                <div class="ps-section ps-section--dark">
-                  <div class="ps-bar wide"></div><div class="ps-bar med"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="por-meta">
-            <div>
-              <div class="por-meta__title-row">
-                <h3>ModaStyle</h3>
-                <span class="por-meta__num">06 · 2023</span>
-              </div>
-              <p class="por-meta__desc">E-commerce · Fashion</p>
-            </div>
-          </div>
-        </article>
-
       </div><!-- /por-grid -->
 
     </div><!-- /por-page -->
@@ -490,8 +432,7 @@
   <footer class="site-footer">
     <div class="footer__inner">
       <div>
-        <div class="footer__logo" aria-hidden="true">Pavel<span class="footer__logo-sub"> · webař na volné noze</span></div>
-        <p class="footer__tagline">Weby, které mluví za vaši firmu — od prvního hovoru po spuštění.</p>
+        <div class="footer__logo" aria-hidden="true"><span class="nav__logo-text"><span class="nav__logo-pavel">pavel</span>builds<span class="footer__logo-sub">.web</span></span></div>
       </div>
       <nav aria-label="Navigace v patičce">
         <p class="footer__heading">Navigace</p>
@@ -505,7 +446,7 @@
       </nav>
       <div>
         <p class="footer__heading">Kontakt</p>
-        <a href="mailto:xblaster.draxia@gmail.com" class="footer__email">xblaster.draxia@gmail.com</a>
+        <a href="mailto:pavelbuildsweb@gmail.com" class="footer__email">pavelbuildsweb@gmail.com</a>
       </div>
     </div>
     <div class="footer__bottom">
@@ -517,21 +458,12 @@
   <script>
     document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-    // On touch devices: auto-scroll when card enters viewport, reset when it leaves
+    // On touch devices: tap a card to start/pause its scroll — each card independent
     if ('ontouchstart' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          var scroll = entry.target.querySelector('.por-scroll');
-          if (entry.isIntersecting) {
-            scroll.classList.add('is-scrolling');
-          } else {
-            scroll.classList.remove('is-scrolling');
-          }
-        });
-      }, { threshold: 0.4 });
-
       document.querySelectorAll('.por-frame').forEach(function(frame) {
-        observer.observe(frame);
+        frame.addEventListener('click', function() {
+          frame.querySelector('.por-scroll').classList.toggle('is-scrolling');
+        });
       });
     }
   </script>
@@ -540,3 +472,4 @@
 
 </body>
 </html>
+

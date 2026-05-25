@@ -128,7 +128,7 @@ img { max-width: 100%; height: auto; display: block; }
   text-align: center;
 }
 .cta-strip h2 { color: #fff; margin-bottom: var(--s-2); }
-.cta-strip p  { color: rgba(255,255,255,.5); margin: 0 auto var(--s-8); max-width: 44ch; }
+.cta-strip p  { color: rgba(255,255,255,.45); margin: 0 auto var(--s-8); max-width: 44ch; }
 
 /* ── Reduced motion ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
