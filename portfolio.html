@@ -1,0 +1,542 @@
+﻿<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Pavel — webař na volné noze</title>
+  <meta name="description" content="Vybrané projekty — weby na míru pro české firmy a živnostníky." />
+  <link rel="canonical" href="https://www.pavelweb.cz/portfolio.html" />
+
+  <meta property="og:type"         content="website" />
+  <meta property="og:site_name"    content="Pavel — webař na volné noze" />
+  <meta property="og:title"        content="Portfolio — weby na míru | Pavel" />
+  <meta property="og:description"  content="Vybrané projekty — weby na míru pro české firmy a živnostníky." />
+  <meta property="og:url"          content="https://www.pavelweb.cz/portfolio.html" />
+  <meta property="og:image"        content="https://www.pavelweb.cz/images/og-cover.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"       content="cs_CZ" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Portfolio — weby na míru | Pavel" />
+  <meta name="twitter:description" content="Vybrané projekty — weby na míru pro české firmy a živnostníky." />
+  <meta name="twitter:image"       content="https://www.pavelweb.cz/images/og-cover.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Domů",      "item": "https://www.pavelweb.cz/" },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://www.pavelweb.cz/portfolio.html" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+
+  <style>
+    /* ── Page overrides ─────────────────────────────────────── */
+    body { background: #eef0f5; }
+
+    /* ── Portfolio tokens ───────────────────────────────────── */
+    :root {
+      --ink:        #1a1612;
+      --ink-2:      #4a423a;
+      --ink-3:      #8a8378;
+      --paper:      #ffffff;
+      --paper-2:    #f0f2f5;
+      --paper-3:    #e2e5ea;
+      --por-accent: #e85d3b;
+      --mono:       "JetBrains Mono", ui-monospace, monospace;
+      --frame-radius: 14px;
+      --card-h:       520px;
+      --scroll-duration: 14s;
+    }
+
+    /* ── Page layout ────────────────────────────────────────── */
+    .por-page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 48px) 64px 96px;
+    }
+
+    /* ── Intro header ───────────────────────────────────────── */
+    .por-intro {
+      padding: 40px 0 44px;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 64px;
+    }
+    .por-intro h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--color-ink);
+      margin: 0;
+    }
+
+    /* ── Project grid ───────────────────────────────────────── */
+    .por-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 64px 40px;
+    }
+
+    /* ── Card ───────────────────────────────────────────────── */
+    .por-card { display: flex; flex-direction: column; gap: 18px; }
+
+    .por-frame {
+      position: relative;
+      width: 100%;
+      height: var(--card-h);
+      border: 1px solid var(--ink);
+      border-radius: var(--frame-radius);
+      background: var(--paper);
+      overflow: hidden;
+      box-shadow: 0 1px 0 rgba(26,22,18,.04);
+      transition: box-shadow .4s ease, transform .4s ease;
+      transform: translateZ(0);
+      contain: layout paint;
+    }
+    .por-card:hover .por-frame {
+      box-shadow: 0 18px 40px -18px rgba(26,22,18,.35);
+      transform: translateY(-2px);
+    }
+
+    /* Browser chrome */
+    .por-chrome {
+      position: absolute; inset: 0 0 auto 0;
+      height: 32px;
+      display: flex; align-items: center; gap: 6px;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--paper-3);
+      background: var(--paper);
+      z-index: 4;
+    }
+    .por-chrome .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      border: 1px solid var(--ink-3); flex-shrink: 0;
+    }
+    .por-chrome .url {
+      flex: 1; margin-left: 6px;
+      font-family: var(--mono); font-size: 10.5px;
+      color: var(--ink-3); letter-spacing: 0.3px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    @keyframes por-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(232,93,59,.6); }
+      100% { box-shadow: 0 0 0 8px rgba(232,93,59,0); }
+    }
+
+    /* Viewport */
+    .por-viewport { position: absolute; inset: 32px 0 0 0; overflow: hidden; }
+
+    /* Cover */
+    .por-cover { display: none; }
+
+    .por-cover--paper { background: var(--paper-2); color: var(--ink); }
+    .por-cover--paper::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(120% 70% at 90% -10%, rgba(26,22,18,.10), transparent 60%);
+      pointer-events: none;
+    }
+    .por-cover--dark { background: #1a1612; color: var(--paper); }
+    .por-cover--dark::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(120% 80% at 80% 110%, rgba(232,93,59,.4), transparent 60%);
+      pointer-events: none;
+    }
+    .por-cover--accent { background: var(--por-accent); color: var(--paper); }
+    .por-cover--accent::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(140% 80% at 20% -20%, rgba(255,255,255,.25), transparent 55%);
+      pointer-events: none;
+    }
+
+    .por-cover__label {
+      position: absolute; top: 22px; left: 22px; right: 22px;
+      font-family: "Caveat", cursive; font-weight: 700;
+      font-size: 56px; line-height: 0.9; letter-spacing: -0.5px;
+      opacity: 0.88;
+    }
+    .por-cover__tag {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.6px; text-transform: uppercase;
+      background: var(--paper); color: var(--ink);
+      padding: 5px 9px; border: 1px solid var(--ink); border-radius: 999px;
+      position: relative; z-index: 1;
+    }
+
+    /* Scroll layer */
+    .por-scroll {
+      position: absolute; inset: 0 0 auto 0;
+      transform: translate3d(0,0,0);
+      transition: transform .6s ease;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .por-card:hover .por-scroll,
+    .por-scroll.is-scrolling {
+      transform: translate3d(0,calc(-100% + 280px),0);
+      transition: transform var(--scroll-duration) linear;
+    }
+
+    /* Faux screenshot */
+    .ps-section {
+      width: 100%; border-bottom: 1px solid #e2e5ea;
+      padding: 24px 22px; display: flex; flex-direction: column; gap: 10px;
+      background: #fff;
+    }
+    .ps-section--dark  { background: #1a1612; border-bottom-color: #2e2a26; }
+    .ps-section--accent { background: var(--por-accent); border-bottom-color: #c94e2e; }
+    .ps-bar { height: 10px; border-radius: 2px; background: #e2e5ea; }
+    .ps-section--dark  .ps-bar { background: rgba(255,255,255,.12); }
+    .ps-section--accent .ps-bar { background: rgba(255,255,255,.3); }
+    .ps-bar.short { width: 38%; }
+    .ps-bar.med   { width: 62%; }
+    .ps-bar.wide  { width: 88%; }
+    .ps-bar.full  { width: 100%; }
+    .ps-bar.tall  { height: 32px; }
+    .ps-bar.xxl   { height: 72px; }
+    .ps-row { display: flex; gap: 10px; }
+    .ps-tile {
+      flex: 1; aspect-ratio: 4/3; border-radius: 6px;
+      background: repeating-linear-gradient(45deg, #f0f2f5 0 8px, #e2e5ea 8px 16px);
+      border: 1px solid #e2e5ea;
+    }
+    .ps-section--dark .ps-tile {
+      background: repeating-linear-gradient(45deg, #23201c 0 8px, #2e2a26 8px 16px);
+      border-color: #3a3530;
+    }
+    .ps-hero {
+      height: 200px; border-radius: 6px;
+      background: repeating-linear-gradient(45deg, #f0f2f5 0 10px, #e2e5ea 10px 20px);
+      border: 1px solid #e2e5ea;
+    }
+
+    /* Meta row */
+    .por-meta { display: block; }
+    .por-meta__title-row { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .por-meta h3 {
+      margin: 0; font-family: "Caveat", cursive; font-weight: 700;
+      font-size: 30px; line-height: 1; color: var(--ink);
+    }
+    .por-meta__num { font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.6px; }
+    .por-meta__desc { margin: 6px 0 0; font-family: var(--mono); font-size: 11px; color: var(--ink-2); letter-spacing: 0.3px; text-transform: uppercase; }
+
+    .por-visit {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 16px; border: 1px solid var(--ink); border-radius: 999px;
+      background: var(--paper); color: var(--ink);
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.6px; text-transform: uppercase;
+      text-decoration: none; white-space: nowrap;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .por-visit:hover { background: var(--por-accent); border-color: var(--por-accent); color: var(--paper); transform: translateY(-1px); text-decoration: none; }
+    .por-visit svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .por-page { padding: calc(var(--nav-height) + 32px) 24px 64px; }
+      .por-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      :root { --card-h: min(55vw, 340px); }
+      .por-page { padding: calc(var(--nav-height) + 20px) 16px 48px; }
+      .por-grid { gap: 28px; }
+      .por-meta h3 { font-size: 22px; }
+      .por-meta__num { font-size: 11px; }
+      .por-meta__desc { font-size: 10px; }
+      .por-visit { padding: 8px 14px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Přeskočit na obsah</a>
+
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="/index.html" class="nav__logo" aria-label="Pavel — domovská stránka">
+        Pavel<span class="nav__logo-sub">· webař na volné noze</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/index.html"     class="nav__link">Domů</a></li>
+        <li><a href="/portfolio.html" class="nav__link nav__link--active">Portfolio</a></li>
+        <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
+        <li><a href="/contact.html"   class="nav__link">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn btn--nav">Konzultace zdarma</a>
+      <button class="nav__burger" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otevřít menu">
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="nav__mobile" hidden>
+      <ul role="list">
+        <li><a href="/index.html"     class="nav__link">Domů</a></li>
+        <li><a href="/portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
+        <li><a href="/contact.html"   class="nav__link">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn">Konzultace zdarma</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="por-page">
+
+      <header class="por-intro">
+        <h1>Vybrané projekty,<br>na kterých jsem dělal</h1>
+      </header>
+
+      <div class="por-grid">
+
+        <!-- Card 1 -->
+        <article class="por-card" style="--scroll-duration:11s">
+          <div class="por-frame">
+            <div class="por-chrome">
+<span class="url">granat-restaurant.cz</span>
+            </div>
+            <div class="por-viewport">
+              <div class="por-cover por-cover--paper">
+                <span class="por-cover__label">Granát<br/>Restaurace</span>
+                <span class="por-cover__tag">01 · Restaurace · Web</span>
+              </div>
+              <div class="por-scroll">
+                <img src="/images/granat_restaurant_portofolio.png" alt="Ukázka webu Granát Restaurace" loading="lazy" style="width:100%;display:block;">
+              </div>
+            </div>
+          </div>
+          <div class="por-meta">
+            <div>
+              <div class="por-meta__title-row">
+                <h3>Granát Restaurace</h3>
+                <span class="por-meta__num">01 · 2024</span>
+              </div>
+              <p class="por-meta__desc">Restaurace · Web</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="por-card">
+          <div class="por-frame">
+            <div class="por-chrome">
+<span class="url">klinika-usmev.cz</span>
+            </div>
+            <div class="por-viewport">
+              <div class="por-cover por-cover--dark">
+                <span class="por-cover__label">Klinika<br/>Úsměv</span>
+                <span class="por-cover__tag">02 · Klinika · Web</span>
+              </div>
+              <div class="por-scroll">
+                <img src="/images/klinika_usmev_portfolio.png" alt="Ukázka webu Klinika Úsměv" loading="lazy" style="width:100%;display:block;">
+              </div>
+            </div>
+          </div>
+          <div class="por-meta">
+            <div>
+              <div class="por-meta__title-row">
+                <h3>Klinika Úsměv</h3>
+                <span class="por-meta__num">02 · 2024</span>
+              </div>
+              <p class="por-meta__desc">Klinika · Web</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="por-card" style="--scroll-duration:6.5s">
+          <div class="por-frame">
+            <div class="por-chrome">
+<span class="url">trattoria-bellanotte.cz</span>
+            </div>
+            <div class="por-viewport">
+              <div class="por-cover por-cover--accent">
+                <span class="por-cover__label">Trattoria<br/>Bella Notte</span>
+                <span class="por-cover__tag">03 · Restaurace · Web</span>
+              </div>
+              <div class="por-scroll">
+                <img src="/images/trattoria_bella_notte_porfolio.png" alt="Ukázka webu Trattoria Bella Notte" loading="lazy" style="width:100%;display:block;">
+              </div>
+            </div>
+          </div>
+          <div class="por-meta">
+            <div>
+              <div class="por-meta__title-row">
+                <h3>Trattoria Bella Notte</h3>
+                <span class="por-meta__num">03 · 2024</span>
+              </div>
+              <p class="por-meta__desc">Restaurace · Web</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="por-card" style="--scroll-duration:15s">
+          <div class="por-frame">
+            <div class="por-chrome">
+<span class="url">serenity-spa.cz</span>
+            </div>
+            <div class="por-viewport">
+              <div class="por-cover por-cover--paper">
+                <span class="por-cover__label">Serenity<br/>Spa & Studio</span>
+                <span class="por-cover__tag">04 · Spa · Web</span>
+              </div>
+              <div class="por-scroll">
+                <img src="/images/serenity_spa_studio_portfolio.png" alt="Ukázka webu Serenity Spa & Studio" loading="lazy" style="width:100%;display:block;">
+              </div>
+            </div>
+          </div>
+          <div class="por-meta">
+            <div>
+              <div class="por-meta__title-row">
+                <h3>Serenity Spa & Studio</h3>
+                <span class="por-meta__num">04 · 2025</span>
+              </div>
+              <p class="por-meta__desc">Spa · Web</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="por-card" style="--scroll-duration:8s">
+          <div class="por-frame">
+            <div class="por-chrome">
+<span class="url">lux-hairstudio.cz</span>
+            </div>
+            <div class="por-viewport">
+              <div class="por-cover por-cover--dark">
+                <span class="por-cover__label">Lux<br/>Hair Studio</span>
+                <span class="por-cover__tag">05 · Kadeřnictví · Web</span>
+              </div>
+              <div class="por-scroll">
+                <img src="/images/lux_hairstudio_portfolio.png" alt="Ukázka webu Lux Hair Studio" loading="lazy" style="width:100%;display:block;">
+              </div>
+            </div>
+          </div>
+          <div class="por-meta">
+            <div>
+              <div class="por-meta__title-row">
+                <h3>Lux Hair Studio</h3>
+                <span class="por-meta__num">05 · 2025</span>
+              </div>
+              <p class="por-meta__desc">Kadeřnictví · Web</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="por-card">
+          <div class="por-frame">
+            <div class="por-chrome">
+<span class="url">modastyle.cz</span>
+            </div>
+            <div class="por-viewport">
+              <div class="por-cover por-cover--accent">
+                <span class="por-cover__label">Moda<br/>Style</span>
+                <span class="por-cover__tag">06 · E-commerce · Fashion</span>
+              </div>
+              <div class="por-scroll">
+                <div class="ps-section"><div class="ps-hero"></div></div>
+                <div class="ps-section">
+                  <div class="ps-bar short"></div>
+                  <div class="ps-row"><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div></div>
+                  <div class="ps-row"><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div></div>
+                </div>
+                <div class="ps-section ps-section--dark">
+                  <div class="ps-bar wide tall"></div>
+                  <div class="ps-bar med"></div><div class="ps-bar short"></div>
+                </div>
+                <div class="ps-section">
+                  <div class="ps-bar med"></div><div class="ps-bar wide"></div><div class="ps-bar short"></div>
+                </div>
+                <div class="ps-section">
+                  <div class="ps-row"><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div><div class="ps-tile"></div></div>
+                </div>
+                <div class="ps-section ps-section--dark">
+                  <div class="ps-bar wide"></div><div class="ps-bar med"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="por-meta">
+            <div>
+              <div class="por-meta__title-row">
+                <h3>ModaStyle</h3>
+                <span class="por-meta__num">06 · 2023</span>
+              </div>
+              <p class="por-meta__desc">E-commerce · Fashion</p>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /por-grid -->
+
+    </div><!-- /por-page -->
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo" aria-hidden="true">Pavel<span class="footer__logo-sub"> · webař na volné noze</span></div>
+        <p class="footer__tagline">Weby, které mluví za vaši firmu — od prvního hovoru po spuštění.</p>
+      </div>
+      <nav aria-label="Navigace v patičce">
+        <p class="footer__heading">Navigace</p>
+        <ul class="footer__links" role="list">
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/pricing.html">Ceník</a></li>
+          <li><a href="/contact.html">Kontakt</a></li>
+          <li><a href="/privacy.html">Ochrana osobních údajů</a></li>
+          <li><a href="/legal.html">Povinné informace</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer__heading">Kontakt</p>
+        <a href="mailto:xblaster.draxia@gmail.com" class="footer__email">xblaster.draxia@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small>&copy; <span id="footer-year"></span> Pavel. Všechna práva vyhrazena.</small>
+      <small class="footer__credit">Design by Pavel</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+    // On touch devices: auto-scroll when card enters viewport, reset when it leaves
+    if ('ontouchstart' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          var scroll = entry.target.querySelector('.por-scroll');
+          if (entry.isIntersecting) {
+            scroll.classList.add('is-scrolling');
+          } else {
+            scroll.classList.remove('is-scrolling');
+          }
+        });
+      }, { threshold: 0.4 });
+
+      document.querySelectorAll('.por-frame').forEach(function(frame) {
+        observer.observe(frame);
+      });
+    }
+  </script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/anim.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Kontakt — Napište mi | Pavel — webař na volné noze</title>
+  <meta name="description" content="Máte projekt nebo otázku? Napište mi — rád si popovídáme o vašich potřebách. Odpovídám do 24 hodin v pracovní dny." />
+  <link rel="canonical" href="https://www.pavelweb.cz/contact.html" />
+
+  <meta property="og:type"         content="website" />
+  <meta property="og:site_name"    content="Pavel — webař na volné noze" />
+  <meta property="og:title"        content="Kontakt — Napište mi | Pavel" />
+  <meta property="og:description"  content="Máte projekt nebo otázku? Napište mi — rád si popovídáme o vašich potřebách." />
+  <meta property="og:url"          content="https://www.pavelweb.cz/contact.html" />
+  <meta property="og:image"        content="https://www.pavelweb.cz/images/og-cover.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"       content="cs_CZ" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Kontakt — Napište mi | Pavel" />
+  <meta name="twitter:description" content="Máte projekt nebo otázku? Napište mi — rád si popovídáme o vašich potřebách." />
+  <meta name="twitter:image"       content="https://www.pavelweb.cz/images/og-cover.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Domů",   "item": "https://www.pavelweb.cz/" },
+      { "@type": "ListItem", "position": 2, "name": "Kontakt","item": "https://www.pavelweb.cz/contact.html" }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/tokens.css?v=4" />
+  <link rel="stylesheet" href="/css/base.css?v=4" />
+  <link rel="stylesheet" href="/css/components.css?v=4" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Přeskočit na obsah</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="/index.html" class="nav__logo" aria-label="Pavel — domovská stránka">
+        Pavel<span class="nav__logo-sub">· webař na volné noze</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/index.html"     class="nav__link">Domů</a></li>
+        <li><a href="/portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
+        <li><a href="/contact.html"   class="nav__link nav__link--active">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn btn--nav">Konzultace zdarma</a>
+      <button class="nav__burger" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otevřít menu">
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="nav__mobile" hidden>
+      <ul role="list">
+        <li><a href="/index.html"     class="nav__link">Domů</a></li>
+        <li><a href="/portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
+        <li><a href="/contact.html"   class="nav__link">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn">Konzultace zdarma</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="contact-section" aria-labelledby="contact-heading">
+      <div class="contact-inner">
+
+        <h1 id="contact-heading">Napište mi</h1>
+        <p class="contact-lead">Přečtu každou zprávu osobně a ozvu se do druhého dne.</p>
+
+        <div class="contact-card">
+          <h2 class="contact-form-heading">Kontaktní formulář</h2>
+          <form class="form" action="#" method="POST" novalidate aria-label="Kontaktní formulář">
+
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="website">Nevyplňujte toto pole</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">Jméno <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name"
+                       required autocomplete="given-name"
+                       placeholder="Vaše jméno" aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email"
+                       required autocomplete="email"
+                       placeholder="vas@email.cz" aria-required="true" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Předmět</label>
+              <input type="text" id="subject" name="subject"
+                     placeholder="Nový web, redesign, SEO audit…" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Zpráva <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message"
+                        required rows="6"
+                        placeholder="Řekněte mi o svém projektu — o co jde, co potřebujete, kdy byste chtěli začít…"
+                        aria-required="true"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-checkbox-label">
+                <input type="checkbox" name="gdpr_consent" required aria-required="true" />
+                <span>Souhlasím se zpracováním osobních údajů dle <a href="/privacy.html">Zásad ochrany osobních údajů</a>. <span aria-hidden="true">*</span></span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--blue" style="width:100%;margin-top:8px;">Odeslat zprávu</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo" aria-hidden="true">Pavel<span class="footer__logo-sub"> · webař na volné noze</span></div>
+        <p class="footer__tagline">Weby, které mluví za vaši firmu — od prvního hovoru po spuštění.</p>
+      </div>
+      <nav aria-label="Navigace v patičce">
+        <p class="footer__heading">Navigace</p>
+        <ul class="footer__links" role="list">
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/pricing.html">Ceník</a></li>
+          <li><a href="/contact.html">Kontakt</a></li>
+          <li><a href="/privacy.html">Ochrana osobních údajů</a></li>
+          <li><a href="/legal.html">Povinné informace</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer__heading">Kontakt</p>
+        <a href="mailto:xblaster.draxia@gmail.com" class="footer__email">xblaster.draxia@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small>&copy; <span id="footer-year"></span> Pavel. Všechna práva vyhrazena.</small>
+      <small class="footer__credit">Design by Pavel</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/anim.js" defer></script>
+</body>
+</html>

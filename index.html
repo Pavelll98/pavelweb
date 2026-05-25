@@ -1,0 +1,481 @@
+﻿<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Váš profesionální web | Pavel — webař na volné noze</title>
+  <meta name="description" content="Tvořím weby na míru pro české firmy a živnostníky. Od návrhu po spuštění — jeden kontakt, kompletní servis." />
+  <link rel="canonical" href="https://www.pavelweb.cz/" />
+
+  <meta property="og:type"         content="website" />
+  <meta property="og:site_name"    content="Pavel — webař na volné noze" />
+  <meta property="og:title"        content="Váš profesionální web | Pavel — webař na volné noze" />
+  <meta property="og:description"  content="Tvořím weby na míru pro české firmy a živnostníky. Od návrhu po spuštění — jeden kontakt, kompletní servis." />
+  <meta property="og:url"          content="https://www.pavelweb.cz/" />
+  <meta property="og:image"        content="https://www.pavelweb.cz/images/og-cover.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"       content="cs_CZ" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Váš profesionální web | Pavel — webař na volné noze" />
+  <meta name="twitter:description" content="Tvořím weby na míru pro české firmy a živnostníky. Od návrhu po spuštění — jeden kontakt, kompletní servis." />
+  <meta name="twitter:image"       content="https://www.pavelweb.cz/images/og-cover.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.pavelweb.cz/#person",
+        "name": "Pavel",
+        "jobTitle": "Webař na volné noze",
+        "url": "https://www.pavelweb.cz/",
+        "knowsAbout": ["Tvorba webových stránek", "SEO", "UI/UX design"]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.pavelweb.cz/#service",
+        "serviceType": "Tvorba webových stránek na míru",
+        "provider": { "@id": "https://www.pavelweb.cz/#person" },
+        "areaServed": "CZ",
+        "url": "https://www.pavelweb.cz/pricing.html"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Přeskočit na obsah</a>
+
+  <!-- ── NAV ──────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Hlavní navigace">
+      <a href="/index.html" class="nav__logo" aria-label="Pavel — domovská stránka">
+        Pavel<span class="nav__logo-sub">· webař na volné noze</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/index.html"     class="nav__link nav__link--active">Domů</a></li>
+        <li><a href="/portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
+        <li><a href="/contact.html"   class="nav__link">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn btn--nav">Konzultace zdarma</a>
+      <button class="nav__burger" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otevřít menu">
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+        <span class="nav__burger-bar"></span>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="nav__mobile" hidden>
+      <ul role="list">
+        <li><a href="/index.html"     class="nav__link">Domů</a></li>
+        <li><a href="/portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
+        <li><a href="/contact.html"   class="nav__link">Kontakt</a></li>
+      </ul>
+      <a href="/contact.html" class="btn" style="margin-top:8px;">Konzultace zdarma</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ── 1. HERO ────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-2col">
+
+        <!-- Left: gradient-border card -->
+        <div class="hero-card-wrap">
+          <div class="hero-card">
+            <p class="hero-card__labels" aria-hidden="true">
+              <span>Web na míru</span>
+              <span>·</span>
+              <span>UX/UI Design</span>
+              <span>·</span>
+              <span>SEO</span>
+              <span>·</span>
+              <span>Grafika</span>
+            </p>
+
+            <h1 class="hero-head" id="hero-heading">
+              Váš <span class="slot" id="slot" aria-live="polite" aria-label="profesionální"></span><br />
+              web začíná<br />
+              právě tady
+            </h1>
+
+            <div class="hero-stats" aria-label="Čísla v číslech">
+              <div class="hero-stat">
+                <span class="hero-stat__num">30+</span>
+                <span class="hero-stat__lbl">Dokončených<br />webů</span>
+              </div>
+              <div class="hero-stat__div" aria-hidden="true"></div>
+              <div class="hero-stat">
+                <span class="hero-stat__num">5+</span>
+                <span class="hero-stat__lbl">Let<br />zkušeností</span>
+              </div>
+              <div class="hero-stat__div" aria-hidden="true"></div>
+              <div class="hero-stat">
+                <span class="hero-stat__num">100%</span>
+                <span class="hero-stat__lbl">Projektů<br />dokončeno včas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Consultation card -->
+        <section class="consult-card" aria-labelledby="consult-title">
+
+          <span class="consult-eyebrow">
+            <span class="consult-ping" aria-hidden="true"></span>
+            Osobně se vám ozvu do 24h
+          </span>
+
+          <h2 class="consult-title" id="consult-title">Konzultace<br>zdarma</h2>
+          <p class="consult-body">
+            Ať už jste na začátku, nebo už máte jasnou představu, společně projdeme vaše možnosti,
+            zasadíme je do kontextu vašeho byznysu, porozumíme vašim potřebám
+            a navrhneme další konkrétní kroky spolupráce.
+          </p>
+
+          <ul class="consult-checks" role="list">
+            <li class="consult-check">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="#16a34a" opacity=".12"/>
+                <path d="M7.5 12.5l3 3 6-6.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Zdarma a bez závazků
+            </li>
+            <li class="consult-check">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="#16a34a" opacity=".12"/>
+                <path d="M7.5 12.5l3 3 6-6.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Osobní přístup
+            </li>
+            <li class="consult-check">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="#16a34a" opacity=".12"/>
+                <path d="M7.5 12.5l3 3 6-6.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Zaměření na vaše reálné potřeby
+            </li>
+            <li class="consult-check">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="#16a34a" opacity=".12"/>
+                <path d="M7.5 12.5l3 3 6-6.5" stroke="#16a34a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Jasně definované další kroky
+            </li>
+          </ul>
+
+          <div class="consult-foot">
+            <div class="consult-author">
+              <div class="consult-avatar"
+                   style="background-image:url('/images/pavel-webař.png');"
+                   role="img"
+                   aria-label="Pavel">
+              </div>
+              <div class="consult-meta">
+                <div class="consult-name">Pavel</div>
+                <div class="consult-role">Váš konzultant</div>
+              </div>
+            </div>
+            <div class="consult-cta-stack">
+              <a class="consult-cta-pill" href="/contact.html">
+                Chci konzultaci zdarma
+              </a>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </section>
+
+    <!-- ── 2. SHOWCASE ─────────────────────────────────────────── -->
+    <section class="showcase-section" aria-labelledby="showcase-heading">
+      <div class="showcase-inner">
+
+        <div class="showcase-right">
+          <div class="showcase-header">
+            <p class="showcase-eyebrow">Portfolio</p>
+            <h2 class="showcase-headline" id="showcase-heading">Weby, které mluví za sebe</h2>
+            <p class="showcase-body">Prohlédněte si mé realizace — od restaurací a wellness studií po kliniky a salony. Každý projekt je navržen na míru tak, aby zaujal a přinášel výsledky.</p>
+          </div>
+        </div>
+
+        <div class="showcase-visual">
+          <div class="showcase-browser">
+            <div class="showcase-bar">
+              <div class="showcase-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="showcase-url" aria-hidden="true">granat-restaurace.cz</div>
+            </div>
+            <div class="showcase-screen">
+              <img
+                src="/images/granat_restaurant_portofolio.png"
+                alt="Ukázka webu — Granát restaurace"
+                class="showcase-img"
+              />
+            </div>
+          </div>
+          <div class="showcase-phone" aria-hidden="true">
+            <div class="showcase-phone-screen">
+              <img src="/images/granat_restaurant_portofolio_phone.png" alt="Mobilní zobrazení webu Granát Restaurace" />
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-footer">
+          <a href="/portfolio.html" class="consult-cta-pill showcase-pill">Zobrazit všechny projekty</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── 3. PROCES ─────────────────────────────────────────── -->
+    <section id="proces" class="proces-section" aria-labelledby="proces-heading">
+      <div class="proces-inner">
+        <p class="proces-eyebrow">Postup</p>
+        <h2 class="proces-headline" id="proces-heading">Jak probíhá spolupráce</h2>
+        <p class="proces-lede">Celým procesem vás provedu jednoduše a srozumitelně — od první konzultace až po spuštění hotového webu. Každý projekt řeším <strong>individuálně</strong> tak, aby web nejen skvěle vypadal, ale hlavně <strong>fungoval a přinášel výsledky</strong>.</p>
+
+        <div class="proc-list" id="proc-accordion">
+
+          <div class="proc-step is-open">
+            <button class="proc-row" type="button" aria-expanded="true" aria-controls="proc-panel-0">
+<span class="proc-content">
+                <span class="proc-num" aria-hidden="true">1</span>
+                <span class="proc-title" id="proc-title-0">Konzultace a plánování</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="proc-panel-0" role="region" aria-labelledby="proc-title-0">
+              <div class="proc-body">
+                <p>Na začátku si společně projdeme vaše představy, cíle a požadavky. Doporučím vhodné řešení a rozsah projektu. Poté připravím návrh struktury webu a základní rozložení stránek — ověříme spolu, že bude web přehledný, funkční a intuitivní ještě předtím, než se pustíme do designu.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="proc-panel-1">
+<span class="proc-content">
+                <span class="proc-num" aria-hidden="true">2</span>
+                <span class="proc-title" id="proc-title-1">Grafický design</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="proc-panel-1" role="region" aria-labelledby="proc-title-1">
+              <div class="proc-body">
+                <p>Vytvořím moderní design webu na míru vaší značce. Design společně ladíme a upravujeme tak dlouho, dokud nebudete s výsledkem maximálně spokojeni. Samozřejmostí je responzivní zobrazení pro mobil i počítač.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="proc-panel-2">
+<span class="proc-content">
+                <span class="proc-num" aria-hidden="true">3</span>
+                <span class="proc-title" id="proc-title-2">Obsah a vývoj</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="proc-panel-2" role="region" aria-labelledby="proc-title-2">
+              <div class="proc-body">
+                <p>Web společně naplníme obsahem — texty můžete dodat vlastní, nebo je pro vás připravím na míru. Jakmile je obsah hotový, web kompletně nakóduji a naprogramuji. Důraz kladu na rychlost, čistý kód, SEO a jednoduchou správu obsahu.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="proc-panel-3">
+<span class="proc-content">
+                <span class="proc-num" aria-hidden="true">4</span>
+                <span class="proc-title" id="proc-title-3">Spuštění a předání</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="proc-panel-3" role="region" aria-labelledby="proc-title-3">
+              <div class="proc-body">
+                <p>Před spuštěním vše důkladně otestujeme a doladíme poslední detaily, aby web fungoval spolehlivě na všech zařízeních i prohlížečích. Hotový web poté nasadím na doménu, nastavím vše potřebné a předám vám kompletní přístupy.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 4. FAQ ────────────────────────────────────────────── -->
+    <section id="faq" class="faq-section" aria-labelledby="faq-heading">
+      <div class="faq-inner">
+        <p class="faq-eyebrow">FAQ</p>
+        <h2 class="faq-headline" id="faq-heading">Časté dotazy</h2>
+
+        <div class="proc-list" id="faq-accordion">
+
+          <div class="proc-step is-open">
+            <button class="proc-row" type="button" aria-expanded="true" aria-controls="faq-panel-0">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">01</span>
+                <span class="proc-title" id="faq-title-0">Kolik stojí web na míru?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-0" role="region" aria-labelledby="faq-title-0">
+              <div class="proc-body">
+                <p>Cena závisí na rozsahu projektu. Jednoduchý prezentační web začíná od 15 000 Kč, komplexnější projekty od 40 000 Kč. Po bezplatné konzultaci dostanete přesnou nabídku šitou na míru vašim potřebám a rozpočtu.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-1">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">02</span>
+                <span class="proc-title" id="faq-title-1">Jak dlouho trvá tvorba webu?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-1" role="region" aria-labelledby="faq-title-1">
+              <div class="proc-body">
+                <p>Typicky 3–6 týdnů. Závisí na rozsahu webu a rychlosti dodání podkladů z vaší strany. Termín vždy dohodnu dopředu a dodržím ho.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-2">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">03</span>
+                <span class="proc-title" id="faq-title-2">Potřebuji dodat texty a fotky sám?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-2" role="region" aria-labelledby="faq-title-2">
+              <div class="proc-body">
+                <p>Nemusíte. Texty i fotografie můžete dodat vlastní, nebo je připravím za vás — copywriting a výběr fotografií jsou součástí mých služeb.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-3">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">04</span>
+                <span class="proc-title" id="faq-title-3">Poskytujete správu a údržbu webu po spuštění?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-3" role="region" aria-labelledby="faq-title-3">
+              <div class="proc-body">
+                <p>Ano. Po spuštění nabízím pravidelnou údržbu, aktualizace a technickou podporu. Vždy víte, na koho se obrátit, když něco potřebujete změnit nebo řešit.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-4">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">05</span>
+                <span class="proc-title" id="faq-title-4">Děláte i e-shopy?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-4" role="region" aria-labelledby="faq-title-4">
+              <div class="proc-body">
+                <p>Ano. E-shopy tvořím na míru i na platformách jako Shoptet nebo WooCommerce. Volbu řešení přizpůsobím vašim potřebám a rozpočtu.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="proc-step">
+            <button class="proc-row" type="button" aria-expanded="false" aria-controls="faq-panel-5">
+              <span class="proc-content">
+                <span class="proc-num" aria-hidden="true">06</span>
+                <span class="proc-title" id="faq-title-5">Co když nebudu spokojený s výsledkem?</span>
+              </span>
+              <span class="proc-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="proc-panel" id="faq-panel-5" role="region" aria-labelledby="faq-title-5">
+              <div class="proc-body">
+                <p>Design ladíme společně tak dlouho, dokud nebudete maximálně spokojeni — to je součástí celého procesu. Web odevzdám až tehdy, kdy budete s výsledkem skutečně spokojeni.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__logo" aria-hidden="true">Pavel<span class="footer__logo-sub"> · webař na volné noze</span></div>
+        <p class="footer__tagline">Weby, které mluví za vaši firmu — od prvního hovoru po spuštění.</p>
+      </div>
+      <nav aria-label="Navigace v patičce">
+        <p class="footer__heading">Navigace</p>
+        <ul class="footer__links" role="list">
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/pricing.html">Ceník</a></li>
+          <li><a href="/contact.html">Kontakt</a></li>
+          <li><a href="/privacy.html">Ochrana osobních údajů</a></li>
+          <li><a href="/legal.html">Povinné informace</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p class="footer__heading">Kontakt</p>
+        <a href="mailto:xblaster.draxia@gmail.com" class="footer__email">xblaster.draxia@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small>&copy; <span id="footer-year"></span> Pavel. Všechna práva vyhrazena.</small>
+      <small class="footer__credit">Design by Pavel</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
+  <script src="/js/hero.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/anim.js" defer></script>
+  <script>
+  (function () {
+    ['proc-accordion', 'faq-accordion'].forEach(function (id) {
+    var steps = document.querySelectorAll('#' + id + ' .proc-step');
+    steps.forEach(function (step) {
+      var btn = step.querySelector('.proc-row');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var isOpen = step.classList.contains('is-open');
+        steps.forEach(function (s) {
+          s.classList.remove('is-open');
+          var b = s.querySelector('.proc-row');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          step.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    });
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+:root {
+  /* ── Palette ─────────────────────────────────────────────── */
+  --color-bg:          #ffffff;
+  --color-ink:         #0A0A0A;
+  --color-muted:       #6B7280;
+  --color-subtle:      #9CA3AF;
+  --color-accent:      #2563EB;
+  --color-accent-h:    #1D4ED8;
+  --color-surface:     #F9FAFB;
+  --color-surface-2:   #F3F4F6;
+  --color-border:      rgba(0, 0, 0, 0.06);
+  --color-border-md:   rgba(0, 0, 0, 0.10);
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-sans: "Inter", system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-hand: "Caveat", "Kalam", cursive;
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --max-width:  1280px;
+  --pad-x:      64px;
+  --nav-height: 72px;
+
+  /* ── Radius ──────────────────────────────────────────────── */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  18px;
+  --radius-2xl: 24px;
+  --radius-pill:999px;
+
+  /* ── Spacing scale (8-base) ──────────────────────────────── */
+  --s-1:   8px;
+  --s-2:  16px;
+  --s-3:  24px;
+  --s-4:  32px;
+  --s-6:  48px;
+  --s-8:  64px;
+  --s-12: 96px;
+  --s-16: 128px;
+
+  /* Legacy aliases (used by inner pages) */
+  --space-xs:  8px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  32px;
+  --space-xl:  64px;
+  --space-2xl: 96px;
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow-xs:   0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-sm:   0 4px 12px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.04);
+  --shadow-md:   0 8px 24px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.04);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.05);
+  --shadow-card: var(--shadow-sm);
+  --shadow-hover:var(--shadow-md);
+
+  /* ── Transitions ─────────────────────────────────────────── */
+  --ease-out:        cubic-bezier(.16,1,.3,1);
+  --transition-fast: 200ms var(--ease-out);
+  --transition-mid:  400ms var(--ease-out);
+  --transition-slow: 600ms var(--ease-out);
+}
+
+@media (max-width: 768px) {
+  :root { --pad-x: 24px; }
+}

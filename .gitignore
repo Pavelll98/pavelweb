@@ -1,0 +1,10 @@
+# Claude / Superpowers internal state
+.superpowers/
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if ever added)
+node_modules/
