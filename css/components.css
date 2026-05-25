@@ -74,9 +74,9 @@
 .nav__link:hover { color: var(--color-ink); text-decoration: none; }
 .nav__link--active { color: var(--color-ink); }
 
-/* Hamburger */
+/* Hamburger — visible by default (mobile-first), hidden on desktop */
 .nav__burger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -137,15 +137,22 @@
   pointer-events: all;
 }
 
+/* Mobile: header always has background (hamburger bars visible) */
 @media (max-width: 900px) {
   .nav__links, .btn--nav { display: none; }
-  .nav__burger { display: flex; }
   .site-header {
     background: rgba(255,255,255,.96);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom-color: var(--color-border);
   }
+}
+
+/* Desktop: show nav links + CTA, hide hamburger */
+@media (min-width: 901px) {
+  .nav__burger { display: none; }
+  .nav__links { display: flex; }
+  .btn--nav { display: inline-flex; }
 }
 
 /* ── Buttons ───────────────────────────────────────────────── */
