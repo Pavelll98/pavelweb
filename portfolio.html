@@ -175,6 +175,10 @@
     }
 
     /* Scroll layer */
+    @keyframes por-scroll-anim {
+      from { transform: translate3d(0,0,0); }
+      to   { transform: translate3d(0,calc(-100% + var(--card-h)),0); }
+    }
     .por-scroll {
       position: absolute; inset: 0 0 auto 0;
       transform: translate3d(0,0,0);
@@ -183,11 +187,34 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
-    .por-card:hover .por-scroll,
     .por-scroll.is-scrolling {
-      transform: translate3d(0,calc(-100% + var(--card-h)),0);
-      transition: transform var(--scroll-duration) linear;
+      animation: por-scroll-anim var(--scroll-duration) linear forwards;
+      transition: none;
     }
+    .por-scroll.is-paused {
+      animation-play-state: paused;
+    }
+
+    /* Pause / play indicator */
+    .por-frame { cursor: pointer; }
+    .por-play-icon {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%) scale(.8);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity .15s, transform .15s;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .por-play-icon svg { fill: #fff; width: 16px; height: 16px; }
+    .por-frame:hover .por-play-icon { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    .por-card.is-anim-paused .por-play-icon { opacity: 1; transform: translate(-50%,-50%) scale(1); }
 
     /* Faux screenshot */
     .ps-section {
@@ -298,7 +325,7 @@
     <div class="por-page">
 
       <header class="por-intro">
-        <h1>Vybrané projekty,<br>na kterých jsem dělal</h1>
+        <h1>Výběr projektů z mé praxe</h1>
       </header>
 
       <div class="por-grid">
@@ -458,14 +485,68 @@
   <script>
     document.getElementById("footer-year").textContent = new Date().getFullYear();
 
-    // On touch devices: tap a card to start/pause its scroll — each card independent
-    if ('ontouchstart' in window) {
-      document.querySelectorAll('.por-frame').forEach(function(frame) {
-        frame.addEventListener('click', function() {
-          frame.querySelector('.por-scroll').classList.toggle('is-scrolling');
+    (function () {
+      var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+      var pauseIcon = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
+      var playIcon  = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>';
+
+      document.querySelectorAll('.por-card').forEach(function (card) {
+        var frame  = card.querySelector('.por-frame');
+        var scroll = card.querySelector('.por-scroll');
+
+        // Inject icon element
+        var icon = document.createElement('div');
+        icon.className = 'por-play-icon';
+        icon.setAttribute('aria-hidden', 'true');
+        icon.innerHTML = pauseIcon;
+        frame.appendChild(icon);
+
+        // Desktop: hover starts / stops animation
+        if (!isTouch) {
+          card.addEventListener('mouseenter', function () {
+            if (!scroll.classList.contains('is-paused')) {
+              scroll.classList.add('is-scrolling');
+            }
+          });
+          card.addEventListener('mouseleave', function () {
+            if (!scroll.classList.contains('is-paused')) {
+              scroll.classList.remove('is-scrolling');
+            }
+          });
+        }
+
+        // Click / tap: pause or resume
+        frame.addEventListener('click', function () {
+          if (scroll.classList.contains('is-paused')) {
+            // Resume
+            scroll.classList.remove('is-paused');
+            card.classList.remove('is-anim-paused');
+            icon.innerHTML = pauseIcon;
+            // Desktop: re-add scrolling if still hovering
+            if (!isTouch && card.matches(':hover')) {
+              scroll.classList.add('is-scrolling');
+            }
+          } else if (scroll.classList.contains('is-scrolling')) {
+            // Pause
+            scroll.classList.add('is-paused');
+            card.classList.add('is-anim-paused');
+            icon.innerHTML = playIcon;
+          } else if (isTouch) {
+            // Mobile first tap: start
+            scroll.classList.add('is-scrolling');
+            icon.innerHTML = pauseIcon;
+          }
+        });
+
+        // Reset icon when animation finishes naturally
+        scroll.addEventListener('animationend', function () {
+          scroll.classList.remove('is-scrolling', 'is-paused');
+          card.classList.remove('is-anim-paused');
+          icon.innerHTML = pauseIcon;
         });
       });
-    }
+    }());
   </script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/anim.js" defer></script>
