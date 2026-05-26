@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const OWNER_EMAIL   = 'pavelbuildsweb@gmail.com';
+  const OWNER_EMAIL   = 'xblaster.draxia@gmail.com'; // free-tier: must match Resend account email
   const FROM          = 'pavelbuilds.web <onboarding@resend.dev>';
 
   // ── 1. Confirmation email to customer ────────────────────────
@@ -103,31 +103,36 @@ export default async function handler(req, res) {
 </body>
 </html>`;
 
+  const headers = { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' };
+
   try {
-    // Send both emails in parallel
-    await Promise.all([
+    const [confirmRes, notifyRes] = await Promise.all([
       fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+        method: 'POST', headers,
         body: JSON.stringify({
-          from: FROM,
-          to: email,
+          from: FROM, to: email,
           subject: 'Dostal jsem vaši zprávu — ozvu se do 24h',
           html: confirmationHtml,
         }),
       }),
       fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+        method: 'POST', headers,
         body: JSON.stringify({
-          from: FROM,
-          to: OWNER_EMAIL,
-          reply_to: email,
+          from: FROM, to: OWNER_EMAIL, reply_to: email,
           subject: `Nová poptávka od ${name}${subject ? ` — ${subject}` : ''}`,
           html: notificationHtml,
         }),
       }),
     ]);
+
+    if (!confirmRes.ok) {
+      const err = await confirmRes.json().catch(() => ({}));
+      console.error('Resend confirmation failed:', confirmRes.status, JSON.stringify(err));
+    }
+    if (!notifyRes.ok) {
+      const err = await notifyRes.json().catch(() => ({}));
+      console.error('Resend notification failed:', notifyRes.status, JSON.stringify(err));
+    }
 
     return res.status(200).json({ ok: true });
   } catch (err) {
