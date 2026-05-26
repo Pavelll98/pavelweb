@@ -41,7 +41,7 @@
 
   <link rel="stylesheet" href="/css/tokens.css?v=8" />
   <link rel="stylesheet" href="/css/base.css?v=8" />
-  <link rel="stylesheet" href="/css/components.css?v=9" />
+  <link rel="stylesheet" href="/css/components.css?v=10" />
 
   <style>
     /* ── Page overrides ─────────────────────────────────────── */
@@ -275,11 +275,13 @@
     @media (max-width: 900px) {
       .por-page { padding: calc(var(--nav-height) + 32px) 24px 64px; }
       .por-grid { grid-template-columns: 1fr; gap: 40px; }
+      .por-intro { padding: 20px 0 20px; margin-bottom: 32px; }
     }
     @media (max-width: 600px) {
       :root { --card-h: min(55vw, 340px); }
       .por-page { padding: calc(var(--nav-height) + 20px) 16px 48px; }
       .por-grid { gap: 28px; }
+      .por-intro { padding: 12px 0 12px; margin-bottom: 20px; }
       .por-meta h3 { font-size: 22px; }
       .por-meta__num { font-size: 11px; }
       .por-meta__desc { font-size: 10px; }
