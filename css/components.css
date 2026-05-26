@@ -1399,6 +1399,7 @@ textarea { resize: vertical; min-height: 140px; }
   width: 100%;
   display: block;
   animation: showcaseScroll 13s 1s ease-in-out infinite alternate;
+  animation-play-state: paused;
   will-change: transform;
 }
 @keyframes showcaseScroll {
@@ -1428,7 +1429,12 @@ textarea { resize: vertical; min-height: 140px; }
   width: 100%;
   display: block;
   animation: showcaseScroll 13s 0s ease-in-out infinite alternate;
+  animation-play-state: paused;
   will-change: transform;
+}
+.showcase-section.showcase-anim-go .showcase-img,
+.showcase-section.showcase-anim-go .showcase-phone-screen img {
+  animation-play-state: running;
 }
 
 .showcase-eyebrow,

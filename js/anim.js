@@ -12,3 +12,16 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 
 document.querySelectorAll('.anim-hidden').forEach(el => observer.observe(el));
+
+// Showcase scroll animation — start only once the footer button enters the viewport
+var showcaseFooter = document.querySelector('.showcase-footer');
+var showcaseSection = document.querySelector('.showcase-section');
+if (showcaseFooter && showcaseSection) {
+  var showcaseAnim = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      showcaseSection.classList.add('showcase-anim-go');
+      showcaseAnim.disconnect();
+    }
+  }, { threshold: 0 });
+  showcaseAnim.observe(showcaseFooter);
+}
