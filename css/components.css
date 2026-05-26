@@ -97,11 +97,12 @@
 .nav__burger--open .nav__burger-bar:nth-child(2) { opacity: 0; }
 .nav__burger--open .nav__burger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* Bottom sheet */
+/* Bottom sheet — block layout (more reliable than flex in iOS Safari) */
 .nav__mobile {
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  max-height: 78vh;
+  max-height: 80vh;
+  overflow-y: auto;
   padding: 0 28px max(32px, env(safe-area-inset-bottom));
   background: #fff;
   border-radius: 20px 20px 0 0;
@@ -110,9 +111,6 @@
   transform: translateY(100%);
   transition: transform 0.35s cubic-bezier(.4,0,.2,1), visibility 0.35s;
   visibility: hidden;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
 }
 /* Drag handle */
 .nav__mobile::before {
@@ -121,8 +119,7 @@
   width: 36px; height: 4px;
   background: rgba(0,0,0,.12);
   border-radius: 2px;
-  margin: 14px auto 20px;
-  flex-shrink: 0;
+  margin: 14px auto 24px;
 }
 .nav__mobile.is-open {
   transform: translateY(0);
@@ -130,7 +127,6 @@
 }
 .nav__mobile ul {
   list-style: none; padding: 0; margin: 0;
-  display: flex; flex-direction: column;
 }
 .nav__mobile li { border-bottom: 1px solid var(--color-border); }
 .nav__mobile li:last-child { border-bottom: none; }
@@ -141,9 +137,10 @@
   padding: 16px 0;
 }
 .nav__mobile .btn {
-  margin-top: 24px;
-  width: 100%;
-  justify-content: center;
+  display: block;
+  margin: 24px 0 0;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 /* Backdrop overlay */

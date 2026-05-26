@@ -25,14 +25,17 @@ document.addEventListener("DOMContentLoaded", function () {
   var mobileMenu = document.getElementById("mobile-menu");
 
   if (burger && mobileMenu) {
-    // Switch from HTML hidden attribute to CSS-driven drawer
     mobileMenu.removeAttribute("hidden");
 
     var overlay = document.createElement("div");
     overlay.className = "nav__overlay";
     document.body.appendChild(overlay);
 
+    var isAnimating = false;
+    mobileMenu.addEventListener("transitionend", function () { isAnimating = false; });
+
     function openMenu() {
+      isAnimating = true;
       mobileMenu.classList.add("is-open");
       overlay.classList.add("is-visible");
       burger.setAttribute("aria-expanded", "true");
@@ -40,11 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.style.overflow = "hidden";
     }
     function closeMenu() {
+      isAnimating = true;
       mobileMenu.classList.remove("is-open");
       overlay.classList.remove("is-visible");
       burger.setAttribute("aria-expanded", "false");
       burger.classList.remove("nav__burger--open");
       document.body.style.overflow = "";
+      mobileMenu.style.transform = "";
     }
 
     burger.addEventListener("click", function (e) {
@@ -59,19 +64,23 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Swipe down to dismiss
+    // Swipe down to dismiss — guarded so it can't fire during open animation
     var touchStartY = 0;
     var touchCurrentY = 0;
     mobileMenu.addEventListener("touchstart", function (e) {
+      if (isAnimating) return;
       touchStartY = e.touches[0].clientY;
+      touchCurrentY = e.touches[0].clientY;
     }, { passive: true });
     mobileMenu.addEventListener("touchmove", function (e) {
+      if (isAnimating) return;
       touchCurrentY = e.touches[0].clientY;
       var delta = Math.max(0, touchCurrentY - touchStartY);
       mobileMenu.style.transition = "none";
       mobileMenu.style.transform = "translateY(" + delta + "px)";
     }, { passive: true });
     mobileMenu.addEventListener("touchend", function () {
+      if (isAnimating) return;
       mobileMenu.style.transition = "";
       var delta = Math.max(0, touchCurrentY - touchStartY);
       if (delta > 90) {
