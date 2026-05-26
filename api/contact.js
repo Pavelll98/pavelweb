@@ -106,32 +106,20 @@ export default async function handler(req, res) {
   const headers = { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' };
 
   try {
-    const [confirmRes, notifyRes] = await Promise.all([
-      fetch('https://api.resend.com/emails', {
-        method: 'POST', headers,
-        body: JSON.stringify({
-          from: FROM, to: email,
-          subject: 'Dostal jsem vaši zprávu — ozvu se do 24h',
-          html: confirmationHtml,
-        }),
+    // Only owner notification for now — customer confirmation requires a verified domain
+    const notifyRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST', headers,
+      body: JSON.stringify({
+        from: FROM, to: OWNER_EMAIL, reply_to: email,
+        subject: `Nová poptávka od ${name}${subject ? ` — ${subject}` : ''}`,
+        html: notificationHtml,
       }),
-      fetch('https://api.resend.com/emails', {
-        method: 'POST', headers,
-        body: JSON.stringify({
-          from: FROM, to: OWNER_EMAIL, reply_to: email,
-          subject: `Nová poptávka od ${name}${subject ? ` — ${subject}` : ''}`,
-          html: notificationHtml,
-        }),
-      }),
-    ]);
+    });
 
-    if (!confirmRes.ok) {
-      const err = await confirmRes.json().catch(() => ({}));
-      console.error('Resend confirmation failed:', confirmRes.status, JSON.stringify(err));
-    }
     if (!notifyRes.ok) {
       const err = await notifyRes.json().catch(() => ({}));
       console.error('Resend notification failed:', notifyRes.status, JSON.stringify(err));
+      return res.status(500).json({ error: 'Odeslání se nezdařilo.' });
     }
 
     return res.status(200).json({ ok: true });
