@@ -363,17 +363,17 @@
 .contact-section {
   padding: calc(var(--nav-height) + 64px) var(--pad-x) 80px;
   min-height: 100vh;
-  background: #eef0f5;
+  background: #fff;
 }
 .contact-inner {
   max-width: 620px;
   margin: 0 auto;
 }
 .contact-inner h1 {
-  font-size: clamp(26px, 3vw, 36px);
+  font-size: clamp(20px, 2.2vw, 28px);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
   color: #0b1020;
 }
 .contact-lead {
@@ -403,7 +403,7 @@
 
 /* ── Prices section wrapper ────────────────────────────────── */
 .prices-section {
-  background: #eef0f5;
+  background: #fff;
   padding: calc(var(--nav-height) + 48px) var(--pad-x) 72px;
   min-height: 100vh;
 }
@@ -1030,7 +1030,7 @@ textarea { resize: vertical; min-height: 140px; }
 
 .consult-title {
   font-size: clamp(28px, 2.8vw, 40px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: #0b1220;
@@ -1516,3 +1516,8 @@ textarea { resize: vertical; min-height: 140px; }
   .hero-2col, .slot .word { animation: none; }
   .hero-2col { opacity: 1; transform: none; }
 }
+
+/* ── Form result message ──────────────────────────────────── */
+.form-result { padding: 14px 18px; border-radius: 8px; font-size: 15px; margin-top: 16px; }
+.form-result--success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+.form-result--error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }

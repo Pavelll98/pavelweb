@@ -34,6 +34,7 @@
   }
   </script>
 
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
   <link rel="preload" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -41,7 +42,7 @@
 
   <link rel="stylesheet" href="/css/tokens.css?v=8" />
   <link rel="stylesheet" href="/css/base.css?v=8" />
-  <link rel="stylesheet" href="/css/components.css?v=8" />
+  <link rel="stylesheet" href="/css/components.css?v=9" />
 </head>
 <body>
 
@@ -81,12 +82,11 @@
     <section class="contact-section" aria-labelledby="contact-heading">
       <div class="contact-inner">
 
-        <h1 id="contact-heading">Napište mi</h1>
-        <p class="contact-lead">Přečtu každou zprávu osobně a ozvu se do druhého dne.</p>
+        <h1 id="contact-heading">Přečtu každou zprávu osobně a ozvu se do druhého dne.</h1>
 
         <div class="contact-card">
           <h2 class="contact-form-heading">Kontaktní formulář</h2>
-          <form class="form" action="#" method="POST" novalidate aria-label="Kontaktní formulář">
+          <form id="contact-form" class="form" action="#" method="POST" novalidate aria-label="Kontaktní formulář">
 
             <div class="form-honeypot" aria-hidden="true">
               <label for="website">Nevyplňujte toto pole</label>
@@ -136,6 +136,7 @@
             </div>
 
             <button type="submit" class="btn btn--blue" style="width:100%;margin-top:8px;">Odeslat zprávu</button>
+            <div id="form-result" class="form-result" hidden></div>
           </form>
         </div>
       </div>
@@ -170,6 +171,7 @@
   </footer>
   <script src="/js/nav.js" defer></script>
   <script src="/js/anim.js" defer></script>
+  <script src="/js/contact.js" defer></script>
 </body>
 </html>
 
