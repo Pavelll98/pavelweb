@@ -139,7 +139,7 @@
 
 /* Mobile: header always has background (hamburger bars visible) */
 @media (max-width: 900px) {
-  .nav__links, .btn--nav { display: none; }
+  .nav__links, .nav .btn--nav { display: none !important; }
   .site-header {
     background: rgba(255,255,255,.96);
     backdrop-filter: blur(12px);
@@ -152,7 +152,7 @@
 @media (min-width: 901px) {
   .nav__burger { display: none; }
   .nav__links { display: flex; }
-  .btn--nav { display: inline-flex; }
+  .nav .btn--nav { display: inline-flex; }
 }
 
 /* ── Buttons ───────────────────────────────────────────────── */
