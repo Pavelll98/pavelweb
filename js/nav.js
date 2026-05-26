@@ -58,6 +58,28 @@ document.addEventListener("DOMContentLoaded", function () {
         burger.focus();
       }
     });
+
+    // Swipe down to dismiss
+    var touchStartY = 0;
+    var touchCurrentY = 0;
+    mobileMenu.addEventListener("touchstart", function (e) {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    mobileMenu.addEventListener("touchmove", function (e) {
+      touchCurrentY = e.touches[0].clientY;
+      var delta = Math.max(0, touchCurrentY - touchStartY);
+      mobileMenu.style.transition = "none";
+      mobileMenu.style.transform = "translateY(" + delta + "px)";
+    }, { passive: true });
+    mobileMenu.addEventListener("touchend", function () {
+      mobileMenu.style.transition = "";
+      var delta = Math.max(0, touchCurrentY - touchStartY);
+      if (delta > 90) {
+        closeMenu();
+      } else {
+        mobileMenu.style.transform = "";
+      }
+    });
   }
 
   /* ── 4. Smooth scroll for same-page anchors ───────────────── */
