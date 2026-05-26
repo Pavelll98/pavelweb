@@ -93,7 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  /* ── 5. Intersection Observer — staggered reveals ─────────── */
+  /* ── 5. Footer year ──────────────────────────────────────── */
+  var yearEl = document.getElementById("footer-year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ── 6. Intersection Observer — staggered reveals ─────────── */
   var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!reduced && "IntersectionObserver" in window) {
     var observer = new IntersectionObserver(function (entries) {

@@ -38,9 +38,9 @@
         as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
 
-  <link rel="stylesheet" href="/css/tokens.css?v=6" />
-  <link rel="stylesheet" href="/css/base.css?v=6" />
-  <link rel="stylesheet" href="/css/components.css?v=6" />
+  <link rel="stylesheet" href="/css/tokens.css?v=7" />
+  <link rel="stylesheet" href="/css/base.css?v=7" />
+  <link rel="stylesheet" href="/css/components.css?v=7" />
 
   <style>
     /* ── Page overrides ─────────────────────────────────────── */
@@ -310,16 +310,16 @@
         <span class="nav__burger-bar"></span>
       </button>
     </nav>
-    <div id="mobile-menu" class="nav__mobile" hidden>
-      <ul role="list">
-        <li><a href="/index.html"     class="nav__link">Domů</a></li>
-        <li><a href="/portfolio.html" class="nav__link">Portfolio</a></li>
-        <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
-        <li><a href="/contact.html"   class="nav__link">Kontakt</a></li>
-      </ul>
-      <a href="/contact.html" class="btn">Konzultace zdarma</a>
-    </div>
   </header>
+  <div id="mobile-menu" class="nav__mobile" hidden>
+    <ul role="list">
+      <li><a href="/index.html"     class="nav__link">Domů</a></li>
+      <li><a href="/portfolio.html" class="nav__link">Portfolio</a></li>
+      <li><a href="/pricing.html"   class="nav__link">Ceník</a></li>
+      <li><a href="/contact.html"   class="nav__link">Kontakt</a></li>
+    </ul>
+    <a href="/contact.html" class="btn">Konzultace zdarma</a>
+  </div>
 
   <main id="main-content">
     <div class="por-page">
@@ -481,73 +481,7 @@
       <small class="footer__credit">Design by Pavel</small>
     </div>
   </footer>
-
-  <script>
-    document.getElementById("footer-year").textContent = new Date().getFullYear();
-
-    (function () {
-      var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-
-      var pauseIcon = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
-      var playIcon  = '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>';
-
-      document.querySelectorAll('.por-card').forEach(function (card) {
-        var frame  = card.querySelector('.por-frame');
-        var scroll = card.querySelector('.por-scroll');
-
-        // Inject icon element
-        var icon = document.createElement('div');
-        icon.className = 'por-play-icon';
-        icon.setAttribute('aria-hidden', 'true');
-        icon.innerHTML = pauseIcon;
-        frame.appendChild(icon);
-
-        // Desktop: hover starts / stops animation
-        if (!isTouch) {
-          card.addEventListener('mouseenter', function () {
-            if (!scroll.classList.contains('is-paused')) {
-              scroll.classList.add('is-scrolling');
-            }
-          });
-          card.addEventListener('mouseleave', function () {
-            if (!scroll.classList.contains('is-paused')) {
-              scroll.classList.remove('is-scrolling');
-            }
-          });
-        }
-
-        // Click / tap: pause or resume
-        frame.addEventListener('click', function () {
-          if (scroll.classList.contains('is-paused')) {
-            // Resume
-            scroll.classList.remove('is-paused');
-            card.classList.remove('is-anim-paused');
-            icon.innerHTML = pauseIcon;
-            // Desktop: re-add scrolling if still hovering
-            if (!isTouch && card.matches(':hover')) {
-              scroll.classList.add('is-scrolling');
-            }
-          } else if (scroll.classList.contains('is-scrolling')) {
-            // Pause
-            scroll.classList.add('is-paused');
-            card.classList.add('is-anim-paused');
-            icon.innerHTML = playIcon;
-          } else if (isTouch) {
-            // Mobile first tap: start
-            scroll.classList.add('is-scrolling');
-            icon.innerHTML = pauseIcon;
-          }
-        });
-
-        // Reset icon when animation finishes naturally
-        scroll.addEventListener('animationend', function () {
-          scroll.classList.remove('is-scrolling', 'is-paused');
-          card.classList.remove('is-anim-paused');
-          icon.innerHTML = pauseIcon;
-        });
-      });
-    }());
-  </script>
+  <script src="/js/portfolio.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/anim.js" defer></script>
 
