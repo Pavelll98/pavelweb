@@ -215,6 +215,16 @@
     .por-play-icon svg { fill: #fff; width: 16px; height: 16px; }
     .por-frame:hover .por-play-icon { opacity: 1; transform: translate(-50%,-50%) scale(1); }
     .por-card.is-anim-paused .por-play-icon { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    @keyframes por-icon-flash {
+      0%   { opacity: 0; transform: translate(-50%,-50%) scale(.75); }
+      12%  { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+      65%  { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%,-50%) scale(.75); }
+    }
+    .por-card.is-icon-flashing .por-play-icon {
+      animation: por-icon-flash 1.8s ease forwards;
+      transition: none;
+    }
 
     /* Faux screenshot */
     .ps-section {

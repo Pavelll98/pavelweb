@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.por-card').forEach(function (card) {
     var frame  = card.querySelector('.por-frame');
     var scroll = card.querySelector('.por-scroll');
+    var flashTimer = null;
 
     var icon = document.createElement('div');
     icon.className = 'por-play-icon';
@@ -13,12 +14,31 @@ document.addEventListener("DOMContentLoaded", function () {
     icon.innerHTML = pauseIcon;
     frame.appendChild(icon);
 
+    function startFlash() {
+      clearTimeout(flashTimer);
+      card.classList.add('is-icon-flashing');
+      flashTimer = setTimeout(function () {
+        card.classList.remove('is-icon-flashing');
+      }, 1800);
+    }
+
+    function stopFlash() {
+      clearTimeout(flashTimer);
+      card.classList.remove('is-icon-flashing');
+    }
+
     if (!isTouch) {
       card.addEventListener('mouseenter', function () {
-        if (!scroll.classList.contains('is-paused')) scroll.classList.add('is-scrolling');
+        if (!scroll.classList.contains('is-paused')) {
+          scroll.classList.add('is-scrolling');
+          startFlash();
+        }
       });
       card.addEventListener('mouseleave', function () {
-        if (!scroll.classList.contains('is-paused')) scroll.classList.remove('is-scrolling');
+        if (!scroll.classList.contains('is-paused')) {
+          scroll.classList.remove('is-scrolling');
+          stopFlash();
+        }
       });
     }
 
@@ -27,20 +47,26 @@ document.addEventListener("DOMContentLoaded", function () {
         scroll.classList.remove('is-paused');
         card.classList.remove('is-anim-paused');
         icon.innerHTML = pauseIcon;
-        if (!isTouch && card.matches(':hover')) scroll.classList.add('is-scrolling');
+        if (!isTouch && card.matches(':hover')) {
+          scroll.classList.add('is-scrolling');
+          startFlash();
+        }
       } else if (scroll.classList.contains('is-scrolling')) {
         scroll.classList.add('is-paused');
         card.classList.add('is-anim-paused');
+        stopFlash();
         icon.innerHTML = playIcon;
       } else if (isTouch) {
         scroll.classList.add('is-scrolling');
         icon.innerHTML = pauseIcon;
+        startFlash();
       }
     });
 
     scroll.addEventListener('animationend', function () {
       scroll.classList.remove('is-scrolling', 'is-paused');
       card.classList.remove('is-anim-paused');
+      stopFlash();
       icon.innerHTML = pauseIcon;
     });
   });
