@@ -6,13 +6,28 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.por-card').forEach(function (card) {
     var frame  = card.querySelector('.por-frame');
     var scroll = card.querySelector('.por-scroll');
-    var flashEndHandler = null;
 
+    if (!isTouch) {
+      // Desktop: scroll on hover only, no button
+      card.addEventListener('mouseenter', function () {
+        if (!scroll.classList.contains('is-paused')) scroll.classList.add('is-scrolling');
+      });
+      card.addEventListener('mouseleave', function () {
+        if (!scroll.classList.contains('is-paused')) scroll.classList.remove('is-scrolling');
+      });
+      scroll.addEventListener('animationend', function () {
+        scroll.classList.remove('is-scrolling', 'is-paused');
+      });
+      return;
+    }
+
+    // Touch only: create pause/play button
     var icon = document.createElement('div');
     icon.className = 'por-play-icon';
     icon.setAttribute('aria-hidden', 'true');
     icon.innerHTML = pauseIcon;
     frame.appendChild(icon);
+    var flashEndHandler = null;
 
     function startFlash() {
       stopFlash();
@@ -32,36 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
       card.classList.remove('is-icon-flashing');
     }
 
-    if (!isTouch) {
-      card.addEventListener('mouseenter', function () {
-        if (!scroll.classList.contains('is-paused')) {
-          scroll.classList.add('is-scrolling');
-          startFlash();
-        }
-      });
-      card.addEventListener('mouseleave', function () {
-        if (!scroll.classList.contains('is-paused')) {
-          scroll.classList.remove('is-scrolling');
-          stopFlash();
-        }
-      });
-    }
-
     frame.addEventListener('click', function () {
       if (scroll.classList.contains('is-paused')) {
+        // Resume: hide button
         scroll.classList.remove('is-paused');
         card.classList.remove('is-anim-paused');
         icon.innerHTML = pauseIcon;
-        if (!isTouch && card.matches(':hover')) {
-          scroll.classList.add('is-scrolling');
-          startFlash();
-        }
       } else if (scroll.classList.contains('is-scrolling')) {
+        // Pause: show button with play icon
         scroll.classList.add('is-paused');
         card.classList.add('is-anim-paused');
         stopFlash();
         icon.innerHTML = playIcon;
-      } else if (isTouch) {
+      } else {
+        // Start: brief flash then hide
         scroll.classList.add('is-scrolling');
         icon.innerHTML = pauseIcon;
         startFlash();
