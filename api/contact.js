@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+﻿export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
   const OWNER_EMAIL   = 'xblaster.draxia@gmail.com'; // free-tier: must match Resend account email
-  const FROM          = 'pavelbuilds.web <onboarding@resend.dev>';
+  const FROM          = 'pavelstudio <onboarding@resend.dev>';
 
   // ── 1. Confirmation email to customer ────────────────────────
   const confirmationHtml = `<!DOCTYPE html>
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 <body>
 <div class="wrap">
   <div class="header">
-    <span class="logo">pavel<span>builds.web</span></span>
+    <span class="logo">pavel<span>studio</span></span>
   </div>
   <div class="body">
     <h1>Díky za zprávu, ${name}!</h1>
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
     <p>Pavel</p>
   </div>
   <div class="footer">
-    <p><a href="https://pavelweb.vercel.app">pavelbuilds.web</a> &nbsp;·&nbsp; Webař na volné noze</p>
+    <p><a href="https://pavelweb.vercel.app">pavelstudio</a> &nbsp;·&nbsp; Webař na volné noze</p>
   </div>
 </div>
 </body>
@@ -86,7 +86,7 @@ export default async function handler(req, res) {
 <body>
 <div class="wrap">
   <div class="header">
-    <span class="logo">pavel<span>builds</span>.web</span>
+    <span class="logo">pavel<span>studio</span></span>
   </div>
   <div class="body">
     <h1>Nová poptávka z webu</h1>
@@ -97,7 +97,7 @@ export default async function handler(req, res) {
     <div class="message-box"><p>${message.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p></div>
   </div>
   <div class="footer">
-    <p>Odesláno ${new Date().toLocaleString('cs-CZ')} · pavelbuilds.web</p>
+    <p>Odesláno ${new Date().toLocaleString('cs-CZ')} · pavelstudio</p>
   </div>
 </div>
 </body>
