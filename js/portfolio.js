@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.por-card').forEach(function (card) {
     var frame  = card.querySelector('.por-frame');
     var scroll = card.querySelector('.por-scroll');
-    var flashTimer = null;
+    var flashEndHandler = null;
 
     var icon = document.createElement('div');
     icon.className = 'por-play-icon';
@@ -15,15 +15,20 @@ document.addEventListener("DOMContentLoaded", function () {
     frame.appendChild(icon);
 
     function startFlash() {
-      clearTimeout(flashTimer);
+      stopFlash();
       card.classList.add('is-icon-flashing');
-      flashTimer = setTimeout(function () {
+      flashEndHandler = function () {
         card.classList.remove('is-icon-flashing');
-      }, 1800);
+        flashEndHandler = null;
+      };
+      icon.addEventListener('animationend', flashEndHandler, { once: true });
     }
 
     function stopFlash() {
-      clearTimeout(flashTimer);
+      if (flashEndHandler) {
+        icon.removeEventListener('animationend', flashEndHandler);
+        flashEndHandler = null;
+      }
       card.classList.remove('is-icon-flashing');
     }
 
