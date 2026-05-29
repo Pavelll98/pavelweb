@@ -6,14 +6,14 @@
 
   <title>Váš profesionální web | Pavel — webař na volné noze</title>
   <meta name="description" content="Tvořím weby na míru pro české firmy a živnostníky. Od návrhu po spuštění — jeden kontakt, kompletní servis." />
-  <link rel="canonical" href="https://www.pavelweb.cz/" />
+  <link rel="canonical" href="https://www.studiopavel.cz/" />
 
   <meta property="og:type"         content="website" />
   <meta property="og:site_name"    content="Pavel — webař na volné noze" />
   <meta property="og:title"        content="Váš profesionální web | Pavel — webař na volné noze" />
   <meta property="og:description"  content="Tvořím weby na míru pro české firmy a živnostníky. Od návrhu po spuštění — jeden kontakt, kompletní servis." />
-  <meta property="og:url"          content="https://www.pavelweb.cz/" />
-  <meta property="og:image"        content="https://www.pavelweb.cz/images/og-cover.jpg" />
+  <meta property="og:url"          content="https://www.studiopavel.cz/" />
+  <meta property="og:image"        content="https://www.studiopavel.cz/images/og-cover.jpg" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale"       content="cs_CZ" />
@@ -21,7 +21,7 @@
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:title"       content="Váš profesionální web | Pavel — webař na volné noze" />
   <meta name="twitter:description" content="Tvořím weby na míru pro české firmy a živnostníky. Od návrhu po spuštění — jeden kontakt, kompletní servis." />
-  <meta name="twitter:image"       content="https://www.pavelweb.cz/images/og-cover.jpg" />
+  <meta name="twitter:image"       content="https://www.studiopavel.cz/images/og-cover.jpg" />
 
   <script type="application/ld+json">
   {
@@ -29,19 +29,19 @@
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://www.pavelweb.cz/#person",
+        "@id": "https://www.studiopavel.cz/#person",
         "name": "Pavel",
         "jobTitle": "Webař na volné noze",
-        "url": "https://www.pavelweb.cz/",
+        "url": "https://www.studiopavel.cz/",
         "knowsAbout": ["Tvorba webových stránek", "SEO", "UI/UX design"]
       },
       {
         "@type": "Service",
-        "@id": "https://www.pavelweb.cz/#service",
+        "@id": "https://www.studiopavel.cz/#service",
         "serviceType": "Tvorba webových stránek na míru",
-        "provider": { "@id": "https://www.pavelweb.cz/#person" },
+        "provider": { "@id": "https://www.studiopavel.cz/#person" },
         "areaServed": "CZ",
-        "url": "https://www.pavelweb.cz/pricing.html"
+        "url": "https://www.studiopavel.cz/pricing.html"
       }
     ]
   }
@@ -50,7 +50,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
   <link rel="preload" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
-        as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        as="style" />
   <noscript><link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" /></noscript>
 
   <link rel="stylesheet" href="/css/tokens.css?v=8" />
@@ -219,16 +219,17 @@
           <div class="showcase-browser">
             <div class="showcase-screen">
               <img
-                src="/images/granat_restaurant_portofolio.webp"
+                src="/images/granat_restaurant_portofolio.jpg"
                 alt="Ukázka webu — Granát restaurace"
                 class="showcase-img"
-                width="1440" height="900"
+                width="650" height="1696"
+                fetchpriority="high"
               />
             </div>
           </div>
           <div class="showcase-phone" aria-hidden="true">
             <div class="showcase-phone-screen">
-              <img src="/images/granat_restaurant_portofolio_phone.webp" alt="Mobilní zobrazení webu Granát Restaurace" width="390" height="844" />
+              <img src="/images/granat_restaurant_portofolio_phone.jpg" alt="Mobilní zobrazení webu Granát Restaurace" width="200" height="1955" />
             </div>
           </div>
         </div>
@@ -488,6 +489,7 @@
       <small class="footer__credit">Design by Pavel</small>
     </div>
   </footer>
+  <script src="/js/fonts.js" defer></script>
   <script src="/js/hero.js" defer></script>
   <script src="/js/nav.js" defer></script>
   <script src="/js/anim.js" defer></script>

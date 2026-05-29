@@ -55,7 +55,7 @@
     <p>Pavel</p>
   </div>
   <div class="footer">
-    <p><a href="https://pavelweb.vercel.app">pavelstudio</a> &nbsp;·&nbsp; Webař na volné noze</p>
+    <p><a href="https://www.studiopavel.cz">pavelstudio</a> &nbsp;·&nbsp; Webař na volné noze</p>
   </div>
 </div>
 </body>
