@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.pavelweb.cz/sitemap.xml
+Sitemap: https://www.studiopavel.cz/sitemap.xml
