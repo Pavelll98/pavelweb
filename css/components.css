@@ -404,7 +404,7 @@
 
 /* ── Prices section wrapper ────────────────────────────────── */
 .prices-section {
-  background: #fff;
+  background: #EEF2FF;
   padding: calc(var(--nav-height) + 48px) var(--pad-x) 72px;
   min-height: 100vh;
 }
@@ -441,10 +441,10 @@
 }
 .pc-card {
   background: #fff;
-  border: 1px solid rgba(0,0,0,.06);
+  border: 1px solid rgba(37,99,235,.10);
   border-radius: 20px;
   padding: 27px 25px 25px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  box-shadow: 0 4px 16px rgba(37,99,235,.08);
   display: flex;
   flex-direction: column;
   position: relative;
